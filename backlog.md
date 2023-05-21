@@ -1,5 +1,5 @@
-Revisar base de datos
-Revisar diseño login inicial
-Investigar funcionaniemto lado cliente servidor flutter
-Basic auth
-Estructuración del proyecto
+- [] - - Generar el esqueleto del proyecto en Flutter
+- [] - - Revisar base de datos a usar (relacion o no relacional)
+- [] - - Revisar diseño login inicial (usar [FIGMA](https://www.figma.com/wireframe-tool/?utm_source=google&utm_medium=cpc&utm_campaign=18473208853&utm_term=web%20designing%20software&utm_content=625154624574&gclid=CjwKCAjw9J2iBhBPEiwAErwpeWlmJmC0FyAA337otytGEB0_zcJM7tCAaTZ9_7tJvjW041bq6fFp1xoCdK4QAvD_BwE)
+- [] - - Basic auth
+- [] - - Estructuración del proyecto
