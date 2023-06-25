@@ -13,7 +13,7 @@
             <column name="ID" type="${varchar.type}(255)">
                 <constraints nullable="false" primaryKey="true"/>
             </column>
-            <column name="NICK_NAME" type="${datetime.type}(6)"/>
+            <column name="NICK_NAME" type="${varchar.type}(6)"/>
             <column name="FULL_NAME" type="${varchar.type}(255)"/>
             <column name="AGE" type="integer"/>
             <column name="BIRTHDATE" type="${datetime.type}(6)"/>
