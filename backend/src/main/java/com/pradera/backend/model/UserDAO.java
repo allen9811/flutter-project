@@ -2,19 +2,19 @@ package com.pradera.backend.model;
 
 import jakarta.persistence.*;
 import lombok.Data;
-import org.springframework.data.domain.Auditable;
+import org.hibernate.annotations.GenericGenerator;
 
-import java.io.Serializable;
 import java.time.LocalDateTime;
 
 @Entity
 @Table(name = "\"USER\"")
 @Data
-public class User {
+public class UserDAO {
 
     @Id
     @Column(name = "ID")
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(generator="system-uuid")
+    @GenericGenerator(name="system-uuid", strategy = "uuid")
     private String id;
     @Column(name="NICK_NAME")
     private String nickName;
@@ -30,5 +30,7 @@ public class User {
     private String phoneNumber;
     @Column(name="COUNTRY")
     private String country;
+    @Column(name="CREATION_DATE")
+    private LocalDateTime creationDate;
 
 }
