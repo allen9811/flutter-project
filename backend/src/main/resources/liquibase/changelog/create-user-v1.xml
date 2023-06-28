@@ -13,14 +13,30 @@
             <column name="ID" type="${varchar.type}(255)">
                 <constraints nullable="false" primaryKey="true"/>
             </column>
-            <column name="NICK_NAME" type="${varchar.type}(6)"/>
-            <column name="FULL_NAME" type="${varchar.type}(255)"/>
-            <column name="AGE" type="integer"/>
-            <column name="BIRTHDATE" type="${datetime.type}(6)"/>
-            <column name="EMAIL" type="${varchar.type}(255)"/>
-            <column name="PHONE_NUMBER" type="${varchar.type}(255)"/>
-            <column name="COUNTRY" type="${varchar.type}(255)"/>
-            <column name="CREATION_DATE" type="${datetime.type}(6)"/>
+            <column name="NICK_NAME" type="${varchar.type}(6)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="FULL_NAME" type="${varchar.type}(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="AGE" type="integer">
+                <constraints nullable="false"/>
+            </column>
+            <column name="BIRTHDATE" type="${datetime.type}(6)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="EMAIL" type="${varchar.type}(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="PHONE_NUMBER" type="${varchar.type}(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="COUNTRY" type="${varchar.type}(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="CREATION_DATE" type="${datetime.type}(6)">
+                <constraints nullable="false"/>
+            </column>
         </createTable>
     </changeSet>
 </databaseChangeLog>

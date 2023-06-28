@@ -3,6 +3,7 @@ package com.pradera.backend.service;
 import com.pradera.backend.model.UserDAO;
 import com.pradera.backend.repository.UserRepository;
 import jakarta.persistence.EntityExistsException;
+import jakarta.persistence.EntityNotFoundException;
 import org.springframework.stereotype.Service;
 
 @Service
@@ -14,12 +15,14 @@ public class UserService {
         this.userRepository = userRepository;
     }
 
-    public UserDAO createUser(UserDAO user) {
-        //TODO Validate if user exists/creation/return of data
+    public String createUser(UserDAO user) {
         if (userRepository.existsByEmailOrPhoneNumber(user.getEmail(), user.getPhoneNumber())) {
             throw new EntityExistsException("Phone number or email is already registered");
         }
-        //TODO Parse dates to timestamp
-        return userRepository.save(user);
+        return userRepository.save(user).getId();
+    }
+
+    public UserDAO extractUserInformation(String userId) {
+        return userRepository.findById(userId).orElseThrow(EntityNotFoundException::new);
     }
 }
