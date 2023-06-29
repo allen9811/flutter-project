@@ -39,4 +39,11 @@
             </column>
         </createTable>
     </changeSet>
+    <changeSet author="init" id="3">
+        <sql splitStatements="true">
+            INSERT INTO "USER" (id, nick_name, full_name, age, birthdate, email, phone_number, country, creation_date)
+            VALUES(nextval('user_seq'), 'ecolan', 'Efrain Esteban Colan Huertas', 28, '1994-07-20 00:00:00.000', 'ecoLan@praderatechnologies.com', '659305227', 'ES', '2022-11-05 00:00:00.000');
+        </sql>
+    </changeSet>
+
 </databaseChangeLog>
