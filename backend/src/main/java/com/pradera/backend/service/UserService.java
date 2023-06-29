@@ -25,4 +25,8 @@ public class UserService {
     public UserDAO extractUserInformation(String userId) {
         return userRepository.findById(userId).orElseThrow(EntityNotFoundException::new);
     }
+
+    public void deleteUser(String userId) {
+        userRepository.deleteById(userId);
+    }
 }

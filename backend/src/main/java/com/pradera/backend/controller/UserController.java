@@ -19,7 +19,8 @@ public class UserController {
         this.userService = userService;
     }
 
-    @PostMapping("/create")
+    @ResponseStatus(HttpStatus.CREATED)
+    @PostMapping(value = "/create")
     public String createUser(@RequestBody UserDAO user) {
         log.info("User creation started with incoming body: {}", user);
         return userService.createUser(user);
@@ -34,6 +35,18 @@ public class UserController {
             throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "User id can not be blank");
         }
         return userService.extractUserInformation(userId);
+    }
+
+    @ResponseStatus(HttpStatus.OK)
+    @DeleteMapping("/delete/{userId}")
+    public void deleteUser(@PathVariable("userId") String userId) {
+        log.info("User information extraction started with param: {}", userId);
+        // TODO: Add security validation
+        if (StringUtils.isBlank(userId)) {
+            log.error("User id can not be blank");
+            throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "User id can not be blank");
+        }
+        userService.deleteUser(userId);
     }
 
 }
