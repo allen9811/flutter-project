@@ -16,7 +16,7 @@ public class UserDAO {
     @Column(name = "ID")
     @SequenceGenerator(name = "USER_SEQ", sequenceName = "USER_SEQ", allocationSize = 1)
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "USER_SEQ")
-    private String id;
+    private Long id;
     @Column(name="NICK_NAME")
     private String nickName;
     @Column(name="FULL_NAME")

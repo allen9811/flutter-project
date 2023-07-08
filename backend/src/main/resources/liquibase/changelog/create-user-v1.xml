@@ -10,7 +10,7 @@
     </changeSet>
     <changeSet id="2" author="init">
         <createTable tableName="USER">
-            <column name="ID" type="${varchar.type}(255)">
+            <column name="ID" type="bigint">
                 <constraints nullable="false" primaryKey="true"/>
             </column>
             <column name="NICK_NAME" type="${varchar.type}(6)">

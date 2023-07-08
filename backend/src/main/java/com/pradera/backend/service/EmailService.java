@@ -7,7 +7,6 @@ import freemarker.template.TemplateException;
 import jakarta.mail.MessagingException;
 import jakarta.mail.internet.MimeMessage;
 import lombok.RequiredArgsConstructor;
-import org.springframework.mail.SimpleMailMessage;
 import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.mail.javamail.MimeMessageHelper;
 import org.springframework.stereotype.Service;
@@ -28,16 +27,6 @@ public class EmailService {
 
     private final ObjectMapper objectMapper;
 
-    public void sendSimpleEmail(String to, String subject, String text) {
-        //TODO: From not working. Evaluate if we can change the username of email configuration to no-reply email.
-        SimpleMailMessage message = new SimpleMailMessage();
-        message.setFrom(NO_REPLY_ADDRESS);
-        message.setTo(to);
-        message.setSubject(subject);
-        message.setText(text);
-        emailSender.send(message);
-    }
-
     public void sendCreatedAccountEmail(UserDAO user) throws MessagingException, IOException, TemplateException {
         Template freemarkerTemplate = freeMarkerConfigurer.getConfiguration()
                 .getTemplate("new-user.ftl");
@@ -46,7 +35,7 @@ public class EmailService {
         MimeMessage message = emailSender.createMimeMessage();
         MimeMessageHelper helper = new MimeMessageHelper(message, true, "UTF-8");
         helper.setFrom(NO_REPLY_ADDRESS);
-        helper.setTo("ecolan.h@gmail.com");
+        helper.setTo(user.getEmail());
         helper.setSubject("FreeMarker email");
         helper.setText(htmlBody, true);
 //        helper.addInline("attachment.png", resourceFile);

@@ -22,12 +22,11 @@ public class UserService {
         this.emailService = emailService;
     }
 
-    public String createUser(UserDAO user) throws MessagingException, TemplateException, IOException {
+    public Long createUser(UserDAO user) throws MessagingException, TemplateException, IOException {
         if (userRepository.existsByEmailOrPhoneNumber(user.getEmail(), user.getPhoneNumber())) {
             throw new EntityExistsException("Phone number or email is already registered");
         }
         UserDAO created = userRepository.save(user);
-        emailService.sendSimpleEmail("ecolan.h@gmail.com", "First email", "TUMAMA");
         emailService.sendCreatedAccountEmail(created);
         return created.getId();
     }

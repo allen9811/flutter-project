@@ -25,7 +25,7 @@ public class UserController {
 
     @ResponseStatus(HttpStatus.CREATED)
     @PostMapping(value = "/create")
-    public String createUser(@RequestBody UserDAO user) throws MessagingException, TemplateException, IOException {
+    public Long createUser(@RequestBody UserDAO user) throws MessagingException, TemplateException, IOException {
         log.info("User creation started with incoming body: {}", user);
         return userService.createUser(user);
     }
