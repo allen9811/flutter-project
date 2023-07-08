@@ -1,0 +1,13 @@
+--- !tapi-tbd
+tbd-version:     4
+targets:         [ arm64-macos ]
+flags:           [ not_app_extension_safe ]
+install-name:    '@rpath/flutter_appauth.framework/Versions/A/flutter_appauth'
+exports:
+  - targets:         [ arm64-macos ]
+    symbols:         [ _authorization, _channel, _flutter_appauthVersionNumber, _flutter_appauthVersionString ]
+    objc-classes:    [ AppAuthAuthorization, AppAuthMacOSAuthorization, ArgumentProcessor, 
+                       AuthorizationTokenRequestParameters, EndSessionRequestParameters, 
+                       FlutterAppAuth, FlutterAppauthPlugin, OIDExternalUserAgentMacNoSSO, 
+                       PodsDummy_flutter_appauth, TokenRequestParameters ]
+...

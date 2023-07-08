@@ -1,0 +1,10 @@
+--- !tapi-tbd
+tbd-version:     4
+targets:         [ arm64-macos ]
+flags:           [ not_app_extension_safe ]
+install-name:    '@rpath/flutter_secure_storage_macos.framework/Versions/A/flutter_secure_storage_macos'
+exports:
+  - targets:         [ arm64-macos ]
+    symbols:         [ _flutter_secure_storage_macosVersionNumber, _flutter_secure_storage_macosVersionString ]
+    objc-classes:    [ FlutterSecureStorageMacosPlugin, PodsDummy_flutter_secure_storage_macos ]
+...
