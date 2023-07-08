@@ -2,24 +2,34 @@ package com.pradera.backend.service;
 
 import com.pradera.backend.model.UserDAO;
 import com.pradera.backend.repository.UserRepository;
+import freemarker.template.TemplateException;
+import jakarta.mail.MessagingException;
 import jakarta.persistence.EntityExistsException;
 import jakarta.persistence.EntityNotFoundException;
 import org.springframework.stereotype.Service;
+
+import java.io.IOException;
 
 @Service
 public class UserService {
 
     private final UserRepository userRepository;
 
-    public UserService(UserRepository userRepository) {
+    private final EmailService emailService;
+
+    public UserService(UserRepository userRepository, EmailService emailService) {
         this.userRepository = userRepository;
+        this.emailService = emailService;
     }
 
-    public String createUser(UserDAO user) {
+    public String createUser(UserDAO user) throws MessagingException, TemplateException, IOException {
         if (userRepository.existsByEmailOrPhoneNumber(user.getEmail(), user.getPhoneNumber())) {
             throw new EntityExistsException("Phone number or email is already registered");
         }
-        return userRepository.save(user).getId();
+        UserDAO created = userRepository.save(user);
+        emailService.sendSimpleEmail("ecolan.h@gmail.com", "First email", "TUMAMA");
+        emailService.sendCreatedAccountEmail(created);
+        return created.getId();
     }
 
     public UserDAO extractUserInformation(String userId) {
