@@ -9,17 +9,10 @@ class HomeScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       bottomNavigationBar: const BottomNavBar(),
-      drawer: const NavBar(),
+      endDrawer: const NavBar(),
       appBar: AppBar(
         backgroundColor: Colors.blueGrey,
         title: const Text('PONTE A PRUEBA'),
-        actions: [
-          IconButton(
-            onPressed: () {},
-            icon: const Icon(Icons.notifications),
-            color: Colors.black,
-          )
-        ],
       ),
     );
   }
