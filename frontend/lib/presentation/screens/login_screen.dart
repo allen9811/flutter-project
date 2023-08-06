@@ -64,7 +64,9 @@ class LoginScreen extends StatelessWidget {
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
                           FilledButton(
-                              onPressed: () {},
+                              onPressed: () {
+                                Navigator.pushNamed(context, '/home_screen');
+                              },
                               child: const Text(
                                 'Login',
                                 style: TextStyle(fontSize: 20),

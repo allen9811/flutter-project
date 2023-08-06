@@ -1,11 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:mobile_app/config/theme/app_theme.dart';
-import 'package:mobile_app/screens/login_screen.dart';
-
-import 'screens/loading_screen.dart';
-import 'screens/authentication_screen.dart';
-import 'screens/main_screen.dart';
-import 'services/auth_service.dart';
+import 'package:mobile_app/presentation/screens/home_screen.dart';
+import 'package:mobile_app/presentation/screens/login_screen.dart';
 
 void main() {
   runApp(const MyApp());
@@ -17,6 +13,10 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      routes: {
+        '/login_screen': (context) => const LoginScreen(),
+        '/home_screen': (context) => const HomeScreen()
+      },
       title: 'Login Screen',
       debugShowCheckedModeBanner: false,
       theme: AppTheme().getTheme(),
