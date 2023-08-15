@@ -1,8 +1,0 @@
-version: "Apple Swift version 5.8 (swiftlang-5.8.0.124.2 clang-1403.0.22.11.100)"
-options: "52c32273cbe5d871ed05568adc25bb70c6ae8cae07c473f2bfabca9b43d1978b"
-build_start_time: [1688264210, 355201000]
-build_end_time: [1688264212, 161601000]
-inputs:
-  "/Users/alexandrolengua/Documents/flutter/mobile_app/macos/Flutter/GeneratedPluginRegistrant.swift": [1688264205, 748790583]
-  "/Users/alexandrolengua/Documents/flutter/mobile_app/macos/Runner/AppDelegate.swift": [1688256345, 454309106]
-  "/Users/alexandrolengua/Documents/flutter/mobile_app/macos/Runner/MainFlutterWindow.swift": [1688256345, 456496835]
