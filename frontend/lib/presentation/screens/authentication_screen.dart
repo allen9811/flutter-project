@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../services/auth_service.dart';
+import '../../services/auth_service.dart';
 
 class AuthenticationScreen extends StatefulWidget {
   const AuthenticationScreen(
@@ -19,7 +19,6 @@ class AuthenticationScreen extends StatefulWidget {
 }
 
 class _AuthenticationScreenState extends State<AuthenticationScreen> {
-
   @override
   Widget build(BuildContext context) {
     return Container(
