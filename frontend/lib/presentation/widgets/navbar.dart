@@ -49,7 +49,7 @@ class NavBar extends StatelessWidget {
         ListTile(
           leading: const Icon(Icons.help),
           title: const Text('Ayuda'),
-          onTap: () => null,
+          onTap: () {},
         ),
         ListTile(
           leading: const Icon(Icons.exit_to_app),

@@ -1,7 +1,4 @@
-import 'dart:io' show Platform;
-
 import 'package:flutter/services.dart';
-import 'package:http/http.dart' as http;
 import 'package:flutter_appauth/flutter_appauth.dart';
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 
@@ -27,13 +24,13 @@ class AuthService {
     try {
       // Obtaining token response from refresh token
       result = await _appAuth.token(
-          TokenRequest(
-            clientID(),
-            redirectUrl(),
-            issuer: GOOGLE_ISSUER,
-            refreshToken: storedRefreshToken,
-          ),
-        );
+        TokenRequest(
+          clientID(),
+          redirectUrl(),
+          issuer: GOOGLE_ISSUER,
+          refreshToken: storedRefreshToken,
+        ),
+      );
 
       final bool setResult = await _handleAuthResult(result);
       return setResult;
@@ -49,11 +46,11 @@ class AuthService {
 
     try {
       authorizationTokenRequest = AuthorizationTokenRequest(
-          clientID(),
-          redirectUrl(),
-          issuer: GOOGLE_ISSUER,
-          scopes: ['email', 'profile'],
-        );
+        clientID(),
+        redirectUrl(),
+        issuer: GOOGLE_ISSUER,
+        scopes: ['email', 'profile'],
+      );
 
       // Requesting the auth token and waiting for the response
       final AuthorizationTokenResponse? result =
